@@ -39,7 +39,7 @@ uint8_t Adafruit_I2CDevice::read(uint8_t reg)
 {
     if (::write(file, &reg, 1) != 1)
     {
-        std::cerr << "Failed to select register" << std::endl;
+        std::cerr << "I2C: Failed to select register" << std::endl;
         return 0;
     }
     uint8_t data;
@@ -54,7 +54,7 @@ bool Adafruit_I2CDevice::read(uint8_t reg, uint8_t *buffer, size_t length)
 {
     if (::write(file, &reg, 1) != 1)
     {
-        std::cerr << "Failed to select register" << std::endl;
+        std::cerr << "I2C: Failed to select register" << std::endl;
         return false;
     }
     if (::read(file, buffer, length) != length)
